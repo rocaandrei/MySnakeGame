@@ -36,8 +36,6 @@ namespace SnakeGame
             paper = e.Graphics;
             food.DrawFood(paper);
             snake.DrawSnake(paper);
-
-
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)// in event-ul asta folosim controalele definite mai sus

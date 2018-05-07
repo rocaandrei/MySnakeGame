@@ -111,6 +111,10 @@ namespace SnakeGame
                     food.FoodLocation(randomFood);// atunci cand sarpele se intersecteaza cu mancarea, se apeleaza metoda FoodLocation si se creaza din nou un obiect de tip food random
                 }
             }
+            if(testWall.WallRec.IntersectsWith(food.foodRec))
+            {
+                food.FoodLocation(randomFood);
+            }
             Colision();
             WallColision();
             this.Invalidate();

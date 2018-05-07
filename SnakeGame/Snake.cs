@@ -20,7 +20,7 @@ namespace SnakeGame
         public Snake()
         {
             snakeRec = new Rectangle[3];//dimensiunea de baza a sarpelui
-            brush = new SolidBrush(Color.Green);// ce culoare sa aiba sarpele 
+            brush = new SolidBrush(Color.Aqua);// ce culoare sa aiba sarpele 
             x = 20;
             y = 0;
             width = 10;

@@ -16,6 +16,7 @@ namespace SnakeGame
 
         Graphics paper;
         Snake snake = new Snake();// adaugam in form sarpele nostru
+        GameLevels testWall;
         Food food;
 
         //mai jos directile sarpelui
@@ -29,6 +30,7 @@ namespace SnakeGame
         {
             InitializeComponent();
             food = new Food(randomFood);//ca mancarea sa fie vizibila pe ecran o initializam aici
+            testWall = new GameLevels();
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)// in enventul asta desenam mancarea si sarpele
@@ -36,6 +38,7 @@ namespace SnakeGame
             paper = e.Graphics;
             food.DrawFood(paper);
             snake.DrawSnake(paper);
+            testWall.DrawWall(paper);
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)// in event-ul asta folosim controalele definite mai sus
@@ -109,6 +112,7 @@ namespace SnakeGame
                 }
             }
             Colision();
+            WallColision();
             this.Invalidate();
         }
         public void Colision()
@@ -127,6 +131,16 @@ namespace SnakeGame
             if (snake.SnakeRec[0].Y < 0 || snake.SnakeRec[0].Y > 290)// daca se loveste de perete.
             {
                 Restart();
+            }
+        }
+        public void WallColision()
+        {
+            for (int i = 1; i < snake.SnakeRec.Length; i++)
+            {
+                if(snake.SnakeRec[0].IntersectsWith(testWall.WallRec))
+                {
+                    Restart();
+                }
             }
         }
 

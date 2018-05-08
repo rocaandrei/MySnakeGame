@@ -37,8 +37,10 @@
             this.SpaceBarLebel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.numericLevel = new System.Windows.Forms.NumericUpDown();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericLevel)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -90,11 +92,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(320, 30);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(302, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.Size = new System.Drawing.Size(108, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Label Test";
+            this.label1.Text = "Enter Game Level";
+            // 
+            // numericLevel
+            // 
+            this.numericLevel.Location = new System.Drawing.Point(328, 77);
+            this.numericLevel.Name = "numericLevel";
+            this.numericLevel.Size = new System.Drawing.Size(70, 20);
+            this.numericLevel.TabIndex = 4;
             // 
             // Form1
             // 
@@ -105,6 +116,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(410, 311);
+            this.Controls.Add(this.numericLevel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.SpaceBarLebel);
@@ -119,6 +131,7 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericLevel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,6 +145,7 @@
         private System.Windows.Forms.Label SpaceBarLebel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown numericLevel;
     }
 }
 

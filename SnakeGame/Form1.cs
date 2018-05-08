@@ -25,7 +25,7 @@ namespace SnakeGame
         bool down = false;
         bool up = false;
 
-        int score = 0; 
+        int score = 0;
         public Form1()
         {
             InitializeComponent();
@@ -43,7 +43,7 @@ namespace SnakeGame
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)// in event-ul asta folosim controalele definite mai sus
         {
-            if(e.KeyData == Keys.Space)// cand se apasa space incepe jocul 
+            if (e.KeyData == Keys.Space)// cand se apasa space incepe jocul 
             {
                 timer1.Enabled = true;
                 SpaceBarLebel.Text = "";
@@ -101,7 +101,7 @@ namespace SnakeGame
             {
                 snake.MoveRight();
             }
-            //mai jos detectarea inpactului, sa vedem ce se intampla atunci cand sarpele ajunge la mancare 
+            //mai jos detectarea impactului, sa vedem ce se intampla atunci cand sarpele ajunge la mancare 
             for (int i = 0; i < snake.SnakeRec.Length; i++)
             {
                 if (snake.SnakeRec[i].IntersectsWith(food.foodRec))// intoarce o valoare bool, verifica daca se interesecteaza sarpele cu mancarea   
@@ -111,7 +111,7 @@ namespace SnakeGame
                     food.FoodLocation(randomFood);// atunci cand sarpele se intersecteaza cu mancarea, se apeleaza metoda FoodLocation si se creaza din nou un obiect de tip food random
                 }
             }
-            if(testWall.WallRec.IntersectsWith(food.foodRec))
+            if (testWall.WallRec.IntersectsWith(food.foodRec))
             {
                 food.FoodLocation(randomFood);
             }
@@ -128,7 +128,7 @@ namespace SnakeGame
                     Restart();
                 }
             }
-            if (snake.SnakeRec[0].X < 0 || snake.SnakeRec[0].X >290)// daca se loveste de perete.
+            if (snake.SnakeRec[0].X < 0 || snake.SnakeRec[0].X > 290)// daca se loveste de perete.
             {
                 Restart();
             }
@@ -141,7 +141,7 @@ namespace SnakeGame
         {
             for (int i = 1; i < snake.SnakeRec.Length; i++)
             {
-                if(snake.SnakeRec[0].IntersectsWith(testWall.WallRec))
+                if (snake.SnakeRec[0].IntersectsWith(testWall.WallRec))
                 {
                     Restart();
                 }

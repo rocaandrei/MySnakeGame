@@ -88,6 +88,8 @@
             this.pictureBox1.Size = new System.Drawing.Size(110, 314);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.UseWaitCursor = true;
+            this.pictureBox1.ClientSizeChanged += new System.EventHandler(this.timer1_Tick);
             // 
             // label1
             // 
@@ -106,6 +108,7 @@
             this.numericLevel.Name = "numericLevel";
             this.numericLevel.Size = new System.Drawing.Size(70, 20);
             this.numericLevel.TabIndex = 4;
+            this.numericLevel.Visible = false;
             // 
             // Form1
             // 

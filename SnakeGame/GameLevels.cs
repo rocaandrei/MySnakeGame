@@ -11,6 +11,7 @@ namespace SnakeGame
     {
         private int x, y, width, height;
         private SolidBrush brush;
+        private SolidBrush brush2;
         public Rectangle WallRec;
         public Rectangle WallRec2;
 
@@ -22,7 +23,7 @@ namespace SnakeGame
             width = 10;
             height = 60;
             brush = new SolidBrush(Color.Black);
-
+            brush2 = new SolidBrush(Color.Black);//TO DO: sa vad de ce nu pot sa colorez si asta, si sa verific si WallRec2
             WallRec = new Rectangle(x, y, width, height);
             WallRec2 = new Rectangle(100, 40, width, height);
         }

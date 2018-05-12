@@ -40,6 +40,23 @@ namespace SnakeGame
             snake.DrawSnake(paper);
             testWall.DrawWall(paper);
         }
+        private void cbLevel1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(cbLevel1.Checked)
+            {
+               //TO DO: aici sa selecteze  level1 
+            }
+            if (cbLevel2.Checked)
+            {
+                //TO DO: aici sa selecteze level2 
+            }
+            if (cbLevel3.Checked)
+            {
+                //TO DO: aici sa selecteze level3 
+            }
+
+        }
+
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)// in event-ul asta folosim controalele definite mai sus
         {
@@ -82,83 +99,86 @@ namespace SnakeGame
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)//evenimentul ce va gestiona viteza, timpul de miscare al sarpelui
+    
+    private void timer1_Tick(object sender, EventArgs e)//evenimentul ce va gestiona viteza, timpul de miscare al sarpelui
+    {
+        SnakeScoreLabel.Text = Convert.ToString(score);// facem conversia scorului din int in string 
+        if (down)
         {
-            SnakeScoreLabel.Text = Convert.ToString(score);// facem conversia scorului din int in string 
-            if (down)
-            {
-                snake.MoveDown();
-            }
-            if (up)
-            {
-                snake.MoveUp();
-            }
-            if (left)
-            {
-                snake.MoveLeft();
-            }
-            if (right)
-            {
-                snake.MoveRight();
-            }
-            //mai jos detectarea impactului, sa vedem ce se intampla atunci cand sarpele ajunge la mancare 
-            for (int i = 0; i < snake.SnakeRec.Length; i++)
-            {
-                if (snake.SnakeRec[i].IntersectsWith(food.foodRec))// intoarce o valoare bool, verifica daca se interesecteaza sarpele cu mancarea   
-                {
-                    score += 10; // adaugam la scor 10 puncte 
-                    snake.GrowSnake();
-                    food.FoodLocation(randomFood);// atunci cand sarpele se intersecteaza cu mancarea, se apeleaza metoda FoodLocation si se creaza din nou un obiect de tip food random
-                }
-            }
-            if (testWall.WallRec.IntersectsWith(food.foodRec))
-            {
-                food.FoodLocation(randomFood);
-            }
-            Colision();
-            WallColision();
-            this.Invalidate();
+            snake.MoveDown();
         }
-        public void Colision()
+        if (up)
         {
-            for (int i = 1; i < snake.SnakeRec.Length; i++)
+            snake.MoveUp();
+        }
+        if (left)
+        {
+            snake.MoveLeft();
+        }
+        if (right)
+        {
+            snake.MoveRight();
+        }
+        //mai jos detectarea impactului, sa vedem ce se intampla atunci cand sarpele ajunge la mancare 
+        for (int i = 0; i < snake.SnakeRec.Length; i++)
+        {
+            if (snake.SnakeRec[i].IntersectsWith(food.foodRec))// intoarce o valoare bool, verifica daca se interesecteaza sarpele cu mancarea   
             {
-                if (snake.SnakeRec[0].IntersectsWith(snake.SnakeRec[i]))// daca se loveste de el..
-                {
-                    Restart();
-                }
+                score += 10; // adaugam la scor 10 puncte 
+                snake.GrowSnake();
+                food.FoodLocation(randomFood);// atunci cand sarpele se intersecteaza cu mancarea, se apeleaza metoda FoodLocation si se creaza din nou un obiect de tip food random
             }
-            if (snake.SnakeRec[0].X < 0 || snake.SnakeRec[0].X > 290)// daca se loveste de perete.
-            {
-                Restart();
-            }
-            if (snake.SnakeRec[0].Y < 0 || snake.SnakeRec[0].Y > 290)// daca se loveste de perete.
+        }
+        if (testWall.WallRec.IntersectsWith(food.foodRec))
+        {
+            food.FoodLocation(randomFood);
+        }
+        Colision();
+        WallColision();
+        this.Invalidate();
+    }
+    public void Colision()
+    {
+        for (int i = 1; i < snake.SnakeRec.Length; i++)
+        {
+            if (snake.SnakeRec[0].IntersectsWith(snake.SnakeRec[i]))// daca se loveste de el..
             {
                 Restart();
             }
         }
-        public void WallColision()
+        if (snake.SnakeRec[0].X < 0 || snake.SnakeRec[0].X > 290)// daca se loveste de perete.
         {
-            for (int i = 1; i < snake.SnakeRec.Length; i++)
-            {
-                if (snake.SnakeRec[0].IntersectsWith(testWall.WallRec))
-                {
-                    Restart();
-                }
-            }
+            Restart();
         }
-        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        if (snake.SnakeRec[0].Y < 0 || snake.SnakeRec[0].Y > 290)// daca se loveste de perete.
         {
-
-        }
-        public void Restart()// metoda de restart atunci cand sarpele se loveste de perete sau de el 
-        {
-            timer1.Enabled = false;
-            MessageBox.Show("Game over! You scored: " + score);
-            SnakeScoreLabel.Text = "0";
-            score = 0;
-            SpaceBarLebel.Text = "Press space bar to begin.";
-            snake = new Snake();
+            Restart();
         }
     }
+    public void WallColision()
+    {
+        for (int i = 1; i < snake.SnakeRec.Length; i++)
+        {
+            if (snake.SnakeRec[0].IntersectsWith(testWall.WallRec))
+            {
+                Restart();
+            }
+        }
+    }
+    private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+    {
+
+    }
+    public void Restart()// metoda de restart atunci cand sarpele se loveste de perete sau de el 
+    {
+        timer1.Enabled = false;
+        MessageBox.Show("Game over! You scored: " + score);
+        SnakeScoreLabel.Text = "0";
+        score = 0;
+        SpaceBarLebel.Text = "Press space bar to begin.";
+        snake = new Snake();
+    }
+
+
+}
 }

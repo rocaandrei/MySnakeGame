@@ -11,6 +11,7 @@ namespace SnakeGame
     {
         private Rectangle[] snakeRec;
         public SolidBrush brush; //vom face sarpele vizibil asa 
+        public SolidBrush brushHead;
         private int x, y, width, height;
 
         public Rectangle[] SnakeRec // asa facem o propietate read only, avem mai sus propietatea de tip private si creem un obiect aici jos

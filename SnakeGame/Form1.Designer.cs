@@ -35,12 +35,13 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.SnakeScoreLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.cbLevel1 = new System.Windows.Forms.CheckBox();
-            this.cbLevel2 = new System.Windows.Forms.CheckBox();
-            this.cbLevel3 = new System.Windows.Forms.CheckBox();
-            this.SpaceBarLebel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.cbLevel3 = new System.Windows.Forms.CheckBox();
+            this.cbLevel2 = new System.Windows.Forms.CheckBox();
+            this.cbLevel1 = new System.Windows.Forms.CheckBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.SpaceBarLebel = new System.Windows.Forms.Label();
+            this.StartBt = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -82,6 +83,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.StartBt);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cbLevel3);
             this.panel1.Controls.Add(this.cbLevel2);
@@ -91,6 +93,49 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(110, 286);
             this.panel1.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Green;
+            this.label1.Location = new System.Drawing.Point(5, 65);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 14);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "ENTER LEVEL";
+            // 
+            // cbLevel3
+            // 
+            this.cbLevel3.AutoSize = true;
+            this.cbLevel3.Location = new System.Drawing.Point(20, 128);
+            this.cbLevel3.Name = "cbLevel3";
+            this.cbLevel3.Size = new System.Drawing.Size(61, 17);
+            this.cbLevel3.TabIndex = 3;
+            this.cbLevel3.Text = "Level 3";
+            this.cbLevel3.UseVisualStyleBackColor = true;
+            // 
+            // cbLevel2
+            // 
+            this.cbLevel2.AutoSize = true;
+            this.cbLevel2.Location = new System.Drawing.Point(20, 105);
+            this.cbLevel2.Name = "cbLevel2";
+            this.cbLevel2.Size = new System.Drawing.Size(61, 17);
+            this.cbLevel2.TabIndex = 2;
+            this.cbLevel2.Text = "Level 2";
+            this.cbLevel2.UseVisualStyleBackColor = true;
+            // 
+            // cbLevel1
+            // 
+            this.cbLevel1.AutoSize = true;
+            this.cbLevel1.Location = new System.Drawing.Point(20, 82);
+            this.cbLevel1.Name = "cbLevel1";
+            this.cbLevel1.Size = new System.Drawing.Size(61, 17);
+            this.cbLevel1.TabIndex = 1;
+            this.cbLevel1.Text = "Level 1";
+            this.cbLevel1.UseVisualStyleBackColor = true;
+            this.cbLevel1.CheckedChanged += new System.EventHandler(this.cbLevel1_CheckedChanged);
             // 
             // textBox1
             // 
@@ -104,37 +149,6 @@
             this.textBox1.TabIndex = 3;
             this.textBox1.Text = "Dev by Andrei Roca";
             // 
-            // cbLevel1
-            // 
-            this.cbLevel1.AutoSize = true;
-            this.cbLevel1.Location = new System.Drawing.Point(20, 82);
-            this.cbLevel1.Name = "cbLevel1";
-            this.cbLevel1.Size = new System.Drawing.Size(61, 17);
-            this.cbLevel1.TabIndex = 1;
-            this.cbLevel1.Text = "Level 1";
-            this.cbLevel1.UseVisualStyleBackColor = true;
-            this.cbLevel1.CheckedChanged += new System.EventHandler(this.cbLevel1_CheckedChanged);
-            // 
-            // cbLevel2
-            // 
-            this.cbLevel2.AutoSize = true;
-            this.cbLevel2.Location = new System.Drawing.Point(20, 105);
-            this.cbLevel2.Name = "cbLevel2";
-            this.cbLevel2.Size = new System.Drawing.Size(61, 17);
-            this.cbLevel2.TabIndex = 2;
-            this.cbLevel2.Text = "Level 2";
-            this.cbLevel2.UseVisualStyleBackColor = true;
-            // 
-            // cbLevel3
-            // 
-            this.cbLevel3.AutoSize = true;
-            this.cbLevel3.Location = new System.Drawing.Point(20, 128);
-            this.cbLevel3.Name = "cbLevel3";
-            this.cbLevel3.Size = new System.Drawing.Size(61, 17);
-            this.cbLevel3.TabIndex = 3;
-            this.cbLevel3.Text = "Level 3";
-            this.cbLevel3.UseVisualStyleBackColor = true;
-            // 
             // SpaceBarLebel
             // 
             this.SpaceBarLebel.AutoSize = true;
@@ -147,17 +161,19 @@
             this.SpaceBarLebel.TabIndex = 1;
             this.SpaceBarLebel.Text = "Press space to begin. ";
             // 
-            // label1
+            // StartBt
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Green;
-            this.label1.Location = new System.Drawing.Point(5, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 14);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "ENTER LEVEL";
+            this.StartBt.BackColor = System.Drawing.Color.Yellow;
+            this.StartBt.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartBt.ForeColor = System.Drawing.Color.Green;
+            this.StartBt.Location = new System.Drawing.Point(20, 151);
+            this.StartBt.Margin = new System.Windows.Forms.Padding(0);
+            this.StartBt.Name = "StartBt";
+            this.StartBt.Size = new System.Drawing.Size(75, 23);
+            this.StartBt.TabIndex = 5;
+            this.StartBt.Text = "START";
+            this.StartBt.UseVisualStyleBackColor = false;
+            this.StartBt.Click += new System.EventHandler(this.StartBt_Click);
             // 
             // Form1
             // 
@@ -201,6 +217,7 @@
         private System.Windows.Forms.CheckBox cbLevel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label SpaceBarLebel;
+        private System.Windows.Forms.Button StartBt;
     }
 }
 

@@ -18,25 +18,26 @@ namespace SnakeGame
         public GameLevels()
         {
             //un perete fix
-            x = 140;
-            y = 50;
+            x = 30;
+            y = 170;
             width = 10;
             height = 60;
-            brush = new SolidBrush(Color.Black);
+           brush = new SolidBrush(Color.Black);
             brush2 = new SolidBrush(Color.Black);//TO DO: sa vad de ce nu pot sa colorez si asta, si sa verific si WallRec2
-            WallRec = new Rectangle(x, y, width, height);
-            WallRec2 = new Rectangle(100, 40, width, height);
+           WallRec = new Rectangle(x, y, width, height);
+            WallRec2 = new Rectangle(280, 10, width, height);
         }
         public void WallLocation()
         {
             x = 30;
-            y = 0;
+            y = 15;
         }
         public void DrawWall(Graphics paper)
         {
             WallRec.X = x;
             WallRec.Y = y;
             paper.FillRectangle(brush, WallRec);
+            paper.FillRectangle(brush2, WallRec2);
         }
 
     }

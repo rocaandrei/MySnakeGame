@@ -40,27 +40,6 @@ namespace SnakeGame
             snake.DrawSnake(paper);
             testWall.DrawWall(paper);
         }
-        private void cbLevel1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cbLevel1.Checked)
-            {
-                //TO DO: aici sa selecteze  level1 
-            }
-            if (cbLevel2.Checked)
-            {
-                //TO DO: aici sa selecteze level2 
-            }
-            if (cbLevel3.Checked)
-            {
-                //TO DO: aici sa selecteze level3 
-            }
-
-        }
-
-        private void StartBt_Click(object sender, EventArgs e)
-        {
-            //cand se face click pe start button sa inceapa sa rulze jocul... dar nu merge
-        }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)// in event-ul asta folosim controalele definite mai sus
         {
@@ -139,6 +118,10 @@ namespace SnakeGame
             {
                 food.FoodLocation(randomFood);
             }
+            if (testWall.WallRec2.IntersectsWith(food.foodRec))
+            {
+                food.FoodLocation(randomFood);
+            }
             Colision();
             WallColision();
             this.Invalidate();
@@ -170,7 +153,12 @@ namespace SnakeGame
             {
                 Restart();
             }
-        }
+                if (snake.SnakeRec[0].IntersectsWith(testWall.WallRec2))
+                {
+                    Restart();
+                }
+            }
+       
     }
     private void toolStripStatusLabel1_Click(object sender, EventArgs e)
     {
